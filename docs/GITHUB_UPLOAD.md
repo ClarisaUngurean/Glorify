@@ -44,7 +44,7 @@ tests/
 
 ```bash
 npm test
-npm run smoke:xss
+npm run smoke:site3
 npm run check:privacy
 ```
 

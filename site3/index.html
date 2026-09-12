@@ -1,17 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Site 3</title>
-
-    <link rel="stylesheet" href="styling/style.css">
-</head>
-
-<body>
-    <h1>Site 3</h1>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signal Search</title>
+    <link rel="stylesheet" href="/styling/style.css">
+  </head>
+  <body>
+    <main class="shell">
+      <nav><span class="brand">SIGNAL<span>///</span></span><span class="status">KNOWLEDGE INDEX</span></nav>
+      <section class="hero">
+        <p class="eyebrow">SITE 3 · SEARCH LAB</p>
+        <h1>Ask the index.</h1>
+        <p>Search a synthetic knowledge base in this intentionally vulnerable local challenge.</p>
+        <form method="get" action="/">
+          <label class="sr-only" for="q">Query</label>
+          <input id="q" name="q" value="{{QUERY_INPUT}}" placeholder="What are you looking for?" autocomplete="off">
+          <button type="submit">Search <span>↗</span></button>
+        </form>
+      </section>
+      {{RESULTS}}
+      <footer>Localhost only · Synthetic content · No analytics</footer>
+    </main>
+  </body>
 </html>

@@ -2,7 +2,7 @@ import { spawn } from "node:child_process";
 
 const children = [
   spawn(process.execPath, ["services/marker/server.mjs"], { stdio: "inherit" }),
-  spawn(process.execPath, ["challenges/reflected-xss/server.mjs"], {
+  spawn(process.execPath, ["site3/server.mjs"], {
     stdio: "inherit"
   }),
   spawn(process.execPath, ["site1/server.mjs"], {

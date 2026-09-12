@@ -1,4 +1,4 @@
-export const CHALLENGE_ID = "reflected-xss";
+export const CHALLENGE_ID = "site3-reflected-xss";
 export const PROBE_ID = "xss-image-beacon-v1";
 
 export function buildProbe(markerBaseUrl, runId) {
@@ -9,34 +9,16 @@ export function buildProbe(markerBaseUrl, runId) {
   return `<img src="${markerUrl.href}" alt="">`;
 }
 
-// The local smoke runner approximates the one browser behavior the probe needs:
-// an injected image element requests its src. The Steel run will use a real browser.
 export async function runProbe({ appBaseUrl, markerBaseUrl, runId }) {
-  const payload = buildProbe(markerBaseUrl, runId);
   const target = new URL("/", appBaseUrl);
-  target.searchParams.set("q", payload);
-
+  target.searchParams.set("q", buildProbe(markerBaseUrl, runId));
   const pageResponse = await fetch(target);
-  if (!pageResponse.ok) {
-    throw new Error(`Challenge returned HTTP ${pageResponse.status}`);
-  }
-
+  if (!pageResponse.ok) throw new Error(`Challenge returned HTTP ${pageResponse.status}`);
   const html = await pageResponse.text();
   const imageMatch = html.match(/<img\s+[^>]*src="([^"]+)"[^>]*>/i);
-  if (imageMatch) {
-    await fetch(imageMatch[1]);
-  }
-
+  if (imageMatch) await fetch(imageMatch[1]);
   const eventsUrl = new URL("/events", markerBaseUrl);
   eventsUrl.searchParams.set("run_id", runId);
-  const eventsResponse = await fetch(eventsUrl);
-  const { events } = await eventsResponse.json();
-
-  return {
-    run_id: runId,
-    challenge: CHALLENGE_ID,
-    probe_id: PROBE_ID,
-    marker_fired: events.length > 0,
-    events
-  };
+  const { events } = await (await fetch(eventsUrl)).json();
+  return { run_id: runId, challenge: CHALLENGE_ID, probe_id: PROBE_ID, marker_fired: events.length > 0, events };
 }
