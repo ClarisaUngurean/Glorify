@@ -1,3 +1,27 @@
-body {
-    font-family: Arial, sans-serif;
-}
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #07111e; color: #eef5ff; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 18% 18%, #173e63 0, transparent 35%), #07111e; }
+.login-layout { min-height: 100vh; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 8vw; max-width: 1160px; margin: auto; padding: 7vw; }
+.logo { display: inline-grid; place-items: center; width: 48px; height: 48px; border: 1px solid #60a5fa; border-radius: 14px; color: #7dd3fc; font-weight: 800; background: #0b2137; }
+.eyebrow { margin: 20px 0 8px; color: #7dd3fc; font-size: .72rem; font-weight: 800; letter-spacing: .18em; }
+h1 { margin: 0; font-size: clamp(3rem, 7vw, 6rem); line-height: .95; letter-spacing: -.06em; }
+.lede { max-width: 520px; color: #a9bad0; font-size: 1.05rem; line-height: 1.7; }
+.card, .admin-panel, .user-panel { padding: 34px; border: 1px solid #29445e; border-radius: 24px; background: rgba(8, 24, 40, .9); box-shadow: 0 24px 70px #0007; }
+.card h2, section h2 { margin: 0 0 8px; font-size: 2rem; }
+.hint, .privacy, .user-panel p, .admin-panel p { color: #a9bad0; }
+.error:empty { display: none; } .error { color: #fca5a5; }
+label { display: grid; gap: 8px; margin-top: 18px; color: #bfd0e3; font-size: .85rem; }
+input { width: 100%; padding: 14px 16px; border: 1px solid #35516d; border-radius: 10px; background: #091827; color: white; font: inherit; }
+input:focus { outline: 2px solid #38bdf8; border-color: transparent; }
+button { width: 100%; margin-top: 24px; padding: 15px 18px; border: 0; border-radius: 10px; background: #38bdf8; color: #052033; font: inherit; font-weight: 800; cursor: pointer; display: flex; justify-content: space-between; }
+.privacy { margin: 20px 0 0; font-size: .72rem; text-align: center; }
+.recovery-link { display: block; margin-top: 18px; color: #7dd3fc; text-align: center; font-size: .85rem; }
+.recovery { max-width: 620px; margin: 42px auto; }.recovery h1 { font-size: clamp(2.6rem, 7vw, 5rem); }.notice { padding: 12px; border: 1px solid #38bdf866; background: #0b2137; color: #bae6fd; }
+.shell { max-width: 900px; margin: auto; padding: 7vw 28px; }
+header { display: flex; align-items: center; gap: 18px; margin-bottom: 32px; } header h1 { font-size: 2.5rem; } header .eyebrow { margin: 0 0 4px; }
+.role { margin-left: auto; padding: 7px 12px; border: 1px solid #35516d; border-radius: 999px; text-transform: uppercase; font-size: .7rem; letter-spacing: .12em; }
+.admin-panel { border-color: #f59e0b88; background: linear-gradient(145deg, #2a1a08, #0b1926); }
+.secret { color: #fbbf24 !important; font: 700 1.15rem ui-monospace, monospace; }
+.back { display: inline-block; margin-top: 24px; color: #7dd3fc; }.marker { display: none; }
+code { color: #bae6fd; }
+@media (max-width: 760px) { .login-layout { grid-template-columns: 1fr; } .intro h1 { font-size: 3.4rem; } }

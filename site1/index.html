@@ -1,17 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Site 1</title>
-
-    <link rel="stylesheet" href="styling/style.css">
-</head>
-
-<body>
-    <h1>Site 1</h1>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Northstar Portal</title>
+    <link rel="stylesheet" href="/styling/style.css">
+  </head>
+  <body>
+    <main class="login-layout">
+      <section class="intro">
+        <span class="logo">N</span>
+        <p class="eyebrow">NORTHSTAR LABS</p>
+        <h1>One portal.<br>Every horizon.</h1>
+        <p class="lede">A deliberately vulnerable, synthetic sign-in challenge for an isolated security demo.</p>
+      </section>
+      <section class="card">
+        <p class="eyebrow">MEMBER ACCESS</p>
+        <h2>Sign in</h2>
+        <p class="hint">Demo account: <code>demo</code> / <code>demo</code></p>
+        <p class="error">{{ERROR}}</p>
+        <form method="post" action="/login{{FORM_ACTION}}">
+          <label>Username<input name="username" value="demo" autocomplete="off" required></label>
+          <label>Password<input name="password" type="password" value="demo" autocomplete="off" required></label>
+          <button type="submit">Enter portal <span>→</span></button>
+        </form>
+        <a class="recovery-link" href="/recover">Forgot your password?</a>
+        <p class="privacy">Synthetic credentials only · No cookies · Localhost only</p>
+      </section>
+    </main>
+  </body>
 </html>

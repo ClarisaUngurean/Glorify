@@ -4,6 +4,12 @@ const children = [
   spawn(process.execPath, ["services/marker/server.mjs"], { stdio: "inherit" }),
   spawn(process.execPath, ["challenges/reflected-xss/server.mjs"], {
     stdio: "inherit"
+  }),
+  spawn(process.execPath, ["site1/server.mjs"], {
+    stdio: "inherit"
+  }),
+  spawn(process.execPath, ["site2/server.mjs"], {
+    stdio: "inherit"
   })
 ];
 
