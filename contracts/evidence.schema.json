@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/evidence.schema.json",
+  "title": "Security challenge evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "challenge",
+    "phase",
+    "probe_id",
+    "marker_fired",
+    "timestamp"
+  ],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "challenge": { "type": "string", "minLength": 1 },
+    "phase": { "enum": ["detection", "protected_control"] },
+    "probe_id": { "type": "string", "minLength": 1 },
+    "marker_fired": { "type": "boolean" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

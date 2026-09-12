@@ -1,0 +1,19 @@
+{
+  "name": "steel-computer-security-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/start-local.mjs",
+    "start:marker": "node services/marker/server.mjs",
+    "start:xss": "node challenges/reflected-xss/server.mjs",
+    "reset:xss": "node scripts/set-xss-variant.mjs vulnerable",
+    "protected:xss": "node scripts/set-xss-variant.mjs secure",
+    "test": "node --test",
+    "smoke:xss": "node scripts/smoke-xss.mjs",
+    "check:privacy": "node scripts/privacy-check.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
