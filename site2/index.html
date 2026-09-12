@@ -35,10 +35,11 @@
         <div>
           <p class="label">CONTINUE WORKING</p>
           <h2>Return after export</h2>
+          <p class="tool-description">Choose where Atlas should send you after completing the export.</p>
           <form action="/leave" method="get">
-            <input name="next" value="/" autocomplete="off">
+            <input name="next" value="/export-complete" autocomplete="off" aria-label="Return destination">
             <input type="hidden" name="run_id" value="site2-redirect-manual-001">
-            <button>Continue</button>
+            <button>Finish export</button>
           </form>
         </div>
       </section>

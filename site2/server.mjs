@@ -54,6 +54,9 @@ const server = http.createServer(async (request, response) => {
   if (request.method === "GET" && url.pathname === "/") {
     return send(response, 200, "text/html; charset=utf-8", await readFile(indexPath, "utf8"));
   }
+  if (request.method === "GET" && url.pathname === "/export-complete") {
+    return send(response, 200, "text/html; charset=utf-8", `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Export complete</title><link rel="stylesheet" href="/styling/style.css"></head><body><main class="workspace"><nav><a class="brand" href="/">ATLAS<span>/DOCS</span></a><span class="status">EXPORT SERVICE</span></nav><section class="success-card"><span class="success-mark">✓</span><p class="label">EXPORT COMPLETE</p><h1>Your files are ready.</h1><p>This is a synthetic confirmation page; no file was written to disk.</p><a href="/">← Return to document index</a></section></main></body></html>`);
+  }
   if (request.method === "GET" && url.pathname === "/document") {
     const requestedFile = url.searchParams.get("file") || "welcome.txt";
     const document = getDocument(requestedFile);
