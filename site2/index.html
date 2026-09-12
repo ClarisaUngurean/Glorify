@@ -1,17 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Site 2</title>
-
-    <link rel="stylesheet" href="styling/style.css">
-</head>
-
-<body>
-    <h1>Site 2</h1>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Atlas Document Viewer</title>
+    <link rel="stylesheet" href="/styling/style.css">
+  </head>
+  <body>
+    <main class="workspace">
+      <nav><span class="brand">ATLAS<span>/DOCS</span></span><span class="status">LOCAL WORKSPACE</span></nav>
+      <header>
+        <p class="label">DOCUMENT INDEX</p>
+        <h1>Find the file<br>you need.</h1>
+        <p>Browse the public collection or enter a filename directly.</p>
+      </header>
+      <section class="grid">
+        <a class="file" href="/document?file=welcome.txt&run_id=site2-manual-001"><span class="icon">TXT</span><strong>welcome.txt</strong><small>Workspace introduction</small></a>
+        <a class="file" href="/document?file=schedule.txt&run_id=site2-manual-001"><span class="icon">TXT</span><strong>schedule.txt</strong><small>Demonstration schedule</small></a>
+        <form class="file lookup" action="/document" method="get">
+          <span class="icon">→_</span><strong>Open by filename</strong><label><span class="sr-only">Filename</span><input name="file" value="welcome.txt" autocomplete="off"></label>
+          <input type="hidden" name="run_id" value="site2-manual-001"><button>Open document</button>
+        </form>
+      </section>
+      <section class="tools">
+        <div>
+          <p class="label">REMOTE SOURCES</p>
+          <h2>Import a reference</h2>
+          <form action="/import" method="get">
+            <input name="url" value="https://docs.example.test/handbook" autocomplete="off">
+            <input type="hidden" name="run_id" value="site2-ssrf-manual-001">
+            <button>Import source</button>
+          </form>
+        </div>
+        <div>
+          <p class="label">CONTINUE WORKING</p>
+          <h2>Return after export</h2>
+          <form action="/leave" method="get">
+            <input name="next" value="/" autocomplete="off">
+            <input type="hidden" name="run_id" value="site2-redirect-manual-001">
+            <button>Continue</button>
+          </form>
+        </div>
+      </section>
+      <footer>Synthetic files only · In-memory sandbox · Localhost only</footer>
+    </main>
+  </body>
 </html>
