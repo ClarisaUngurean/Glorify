@@ -10,6 +10,9 @@ const children = [
   }),
   spawn(process.execPath, ["site2/server.mjs"], {
     stdio: "inherit"
+  }),
+  spawn(process.execPath, ["dashboard/server.mjs"], {
+    stdio: "inherit"
   })
 ];
 
