@@ -39,10 +39,20 @@ npm start
 
 `npm start` launches:
 
+- Glorify sign-in and dashboard: <http://127.0.0.1:8000>
 - Site 3 reflected-XSS search challenge: <http://127.0.0.1:3000>
 - Marker service: <http://127.0.0.1:3001>
 - Site 1 sign-in challenge: <http://127.0.0.1:3010>
 - Site 2 document challenge: <http://127.0.0.1:3020>
+
+The dashboard currently uses a local demo account:
+
+```text
+Email: demo@glorify.local
+Password: glorify-demo
+```
+
+Set `GLORIFY_DEMO_EMAIL` and `GLORIFY_DEMO_PASSWORD` to replace those local defaults. The dashboard issues an HTTP-only, same-site session cookie. Pentest launches are simulated until the Steel Computer runner is connected.
 
 Reset the active challenge to its vulnerable starting state:
 
@@ -66,6 +76,7 @@ The autonomous agent must not run the `protected:*` commands or edit a challenge
 
 ```text
 site3/                     Reflected-XSS search challenge and variants
+dashboard/                 Authenticated Glorify dashboard and local API
 site1/                     Sign-in role-tampering challenge and variants
 site2/                     Virtual document-traversal challenge and variants
 contracts/                 Shared evidence schema

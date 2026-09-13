@@ -9,6 +9,7 @@
     "start:site3": "node site3/server.mjs",
     "start:site1": "node site1/server.mjs",
     "start:site2": "node site2/server.mjs",
+    "start:dashboard": "node dashboard/server.mjs",
     "reset:site3": "node scripts/set-site3-variant.mjs vulnerable",
     "protected:site3": "node scripts/set-site3-variant.mjs secure",
     "reset:site1": "node scripts/set-site1-variant.mjs vulnerable",
